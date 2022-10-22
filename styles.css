@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
 :root{
     --clr-primary: #0a4602;
@@ -14,7 +14,7 @@
 
   
 
-  --ff: 'Be Vietnam Pro', sans-serif;
+  --ff: 'Poppins', sans-serif;
 
   --fw-light: 400;
   --fw-semi-bold: 500;
@@ -250,14 +250,16 @@ button{
   
 }
 
-
+/* ---------- HEADER ---------- */
+/* Header  */
 header .nav-list a{
-  color: var(--clr-light)
+  color: var(--clr-light);
 }
 
 header .nav-wrapper{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
   margin-block-end: 1rem
 }
@@ -265,7 +267,7 @@ header .nav-wrapper{
 header .logo{
   font-size: 2.5rem;
   font-style: italic;
-  max-width: 15%;
+  width: 15%;
 }
 
 .primary-nav{
@@ -297,7 +299,6 @@ header .logo{
   line-height: 1;
   width: 20%;
   text-align: right;
-  justify-content: flex-end;
 }
 
 .nav-wrapper input{
@@ -325,16 +326,26 @@ header form .search-icon{
 }
 
 @media (max-width: 45em) {
+  header .logo{
+    position: absolute;
+    top: 1rem;
+    right: 45%
+  }
+
+
   /* Mobile navigation */
+
+
   .primary-nav{
-    display: none;
-    position: fixed;
+    display: ;
+    position: relative;
     z-index: 100;
-    inset: 5rem 2rem auto;
+    left: 0;
+    align-items: flex-start;
     padding: 2rem;
-    background-color: var(--clr-light);
     box-shadow: 0 0 0.75em rgba(0, 0, 0, 0.5);
     font-weight: var(--fw-700);
+    width: 100%;
   }
 
   .primary-header[data-opened]::before{
@@ -350,16 +361,20 @@ header form .search-icon{
     display: block;
   }
 
+  .secondary-nav{
+    display: none;
+  }
+
   .nav-list{
-    text-align: center;
+    text-align: left;
     display: grid;
     gap: 1.5rem;
   }
 
-  .nav-list a:hover,
-  .nav-list a:focus{
-    color: var(--clr-primary);
+  .nav-list span{
+    display: none;
   }
+
 
   .nav-wrapper .btn{
     display: none;
@@ -371,11 +386,12 @@ header form .search-icon{
     border: none;
     outline: none;
     background-color: transparent;
+    color: var(--clr-white);
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     z-index: 1000;
-    right: 1rem;
-    top: 2.5rem;
+    left: 1rem;
+    top: 1rem;
     width: 1.5rem;
     aspect-ratio: 1;
     background-image: url(./images/icon-hamburger.svg); 
@@ -419,6 +435,23 @@ header form .search-icon{
 
 .hero img{
   max-width: 45%;
+}
+
+@media (max-width: 50em) {
+  .hero form{
+    padding-inline-end: unset;
+    border-right: unset;
+    grid-row: 2;
+  }
+
+  .hero article{
+    text-align: center;
+  }
+
+  .hero img{
+    max-width: 100%;
+    order: -1;
+  }
 }
 
 .score{
@@ -482,4 +515,24 @@ footer form button{
   align-self: flex-start;
   margin-block-start: -0.5rem;
   padding-block: 0.5rem;
+}
+
+@media (max-width: 50em){
+  .footer-widget .footer-icons,
+  .footer-widget .footer-menu,
+  footer form{
+    width: 100%;
+  }
+  
+  .footer-widget .footer-menu{
+    justify-content: space-around;
+  }
+  
+  footer form{
+    align-items: center;
+  }
+
+  footer form button{
+    align-self: center;
+  }
 }

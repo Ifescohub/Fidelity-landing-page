@@ -351,3 +351,11 @@ footer a{
 footer a:is(:hover, :focus){
   color: var(--clr-secondary);
 }
+
+footer .social-list {
+  justify-content: space-between;
+}
+
+footer .search-list ion-icon{
+  font-size: 2rem;
+}

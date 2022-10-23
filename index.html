@@ -18,9 +18,12 @@
     <header class="primary-header bg-primary">
         <div class="padding-block-1">
             <div class="nav-wrapper">
-                <button class="mobile-nav-toggle">
+                <div class="mobile-nav-toggle">
                     <span class="sr-only">Menu</span>
-                </button>
+                    <img class="hambuger" src="images/icon-hamburger.svg" alt="">
+                    <img  class="close" src="images/icon-close.svg" alt="">
+                </div>
+
                 <div>
                     <a href="#" class="text-light fw-bold logo">Fidelity.</a>
                 </div>
@@ -35,9 +38,11 @@
                     <span>|</span>
                     <l1><a href="#">Profile</a></l1>
                     <span class="fs-400">|</span>
-                    <l1><a href="#" class="login">Log in</a></l1>
+                    <l1><a href="#" class="log">Log in</a></l1>
                   </ul>
                 </nav>
+
+                <a href="#" class="login text-light fs-500">Log in</a>
           
                 <form class="flex-column" action="">                
                     <input type="search" placeholder="Search or get a quote">
@@ -45,10 +50,6 @@
                         <ion-icon class="search-icon text-dark" name="search-outline"></ion-icon>
                     </label>
                 </form>
-
-                <div>
-                    <a href="#" class="login text-light fs-500">Log in</a>
-                </div>
             </div>
             <nav class="secondary-nav fs-300 padding-inline-2">
                 <ul class="nav-list flex-column">
@@ -60,7 +61,6 @@
                 </ul>
               </nav>
         </div>
-        
       </header>
       <main>
         <section class="hero container even-columns margin-block-4">
@@ -168,7 +168,7 @@
 
         <section class="container center-align margin-block-4">          
             <h2 class="text-dark">Whatever you are investing for, we can help</h2>
-            <p class="padding-block-1 padding-inline-2">From complex wealth management to your retirmemnt needs, we can help you with financial planning. From complex wealth management to your retirmemnt needs</p>
+            <p class="padding-block-1 padding-inline-1">From complex wealth management to your retirmemnt needs, we can help you with financial planning. From complex wealth management to your retirmemnt needs</p>
             <button class="bg-secondary padding-inline-1">Open an Account</button>
         </section>
 
@@ -196,8 +196,8 @@
         </section>
     </main>
 
-    <footer class="container bg-gray padding-block-3">
-        <div class="footer-widget flex-column layout">
+    <footer class="padding-block-3">
+        <div class="container footer-widget flex-column layout">
             <div class="footer-icons flex-row">
                 <a href="#" class="logo">
                     <img class="center-align" src="./images/Fidelity-footer-logo.png" alt="Footer Logo">

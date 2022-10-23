@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
 
 :root{
     --clr-primary: #0a4602;
@@ -14,22 +16,22 @@
 
   
 
-  --ff: 'Poppins', sans-serif;
+    --ff: 'Rubik', sans-serif;
 
-  --fw-light: 400;
-  --fw-semi-bold: 500;
-  --fw-bold: 700;
+    --fw-light: 400;
+    --fw-semi-bold: 500;
+    --fw-bold: 700;
 
-  
-  --fs-100: 0.6rem;
-  --fs-200: 0.7rem;
-  --fs-300: 0.8rem;
-  --fs-400: 0.9rem;
-  --fs-500: 1.2;
-  --fs-600: 1.5rem;
-  --fs-700: 2rem;
+    
+    --fs-100: 0.6rem;
+    --fs-200: 0.7rem;
+    --fs-300: 0.8rem;
+    --fs-400: 0.9rem;
+    --fs-500: 1.2;
+    --fs-600: 1.5rem;
+    --fs-700: 2rem;
 
-  --fs-heading: 1rem;
+    --fs-heading: 1.5rem;
 }
 
 @media (max-width: 65em){
@@ -46,7 +48,6 @@
 
 
  /* https://piccalil.li/blog/a-modern-css-reset */
-
 /* Box sizing rules */
 *,
 *::before,
@@ -59,6 +60,7 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  max-width: 100%;
 }
 
 /* Remove list styles on ul, ol elements, which suggests default styling will be removed */
@@ -94,22 +96,6 @@ picture,
 svg{
   max-width: 100%;
   display: block;
-}
-
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-   scroll-behavior: auto;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }
 
 h1,
@@ -242,7 +228,7 @@ button{
 @media (max-width: 50em) {
   .container{
     --max-width: 30rem;
-    --padding: 2rem;
+    --padding: 0.5rem;
     width: min(var(--max-width), 100% - var(--padding));
     margin-inline: auto;
   }
@@ -257,7 +243,7 @@ button{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--column-gap, 1rem);
+    gap: var(--column-gap, 2rem);
   }
   
 }
@@ -296,6 +282,9 @@ header .logo{
   text-transform: uppercase;
 }
 
+.secondary-nav{
+  padding-inline: 2rem;
+}
 
 .secondary-nav .nav-list{
   justify-content: space-between;
@@ -306,33 +295,36 @@ header .logo{
 }
 
 
-.nav-wrapper form{
-  gap: 0;
+header form{
+  --column-gap: 0;
   font-size: var(--fs-300);
   line-height: 1;
   width: 20%;
   text-align: right;
+  justify-self: flex-end;
 }
 
-.nav-wrapper input{
+header input{
   padding-inline-start: 0.5rem;
   border-radius: 0.3rem 0 0 0.3rem;
-  width: 85%
+  border: none;
+  outline: none;
 }
 
 header form label{
-  padding-block: 0.1rem;
+  padding: 0.2rem;
   background: #005c00;
 }
 
 header form .search-icon{
   font-size: 1.5rem;
-  margin-inline-start: -1px -5px;
   color: var(--clr-white);
-  
   border: none;
 }
 
+.nav-wrapper .login{
+  display: none;
+}
 
 .mobile-nav-toggle{
   display: none;
@@ -357,16 +349,11 @@ header form .search-icon{
     font-style: italic;
   }
   
-  .primary-nav{
-    align-items: center;
-    max-width: 100%;
+  header .nav-wrapper .login{
+    display: unset;
   }
 
-  .primary-nav .login{
-    
-  }
-
-  .nav-wrapper form{
+  header .nav-wrapper form{
     width: 100%;
     text-align: unset;
     position: absolute;
@@ -376,9 +363,8 @@ header form .search-icon{
     transition: transform 0.8s ease-in-out;
   }
   
-  .nav-wrapper input{
-    border-radius: 0.3rem 0 0 0.3rem;
-    width: 90%;
+  header .nav-wrapper input{
+    width: 50%;
   }
 
   .primary-nav{
@@ -392,22 +378,16 @@ header form .search-icon{
     background-color: var(--clr-primary);
     box-shadow: none;
     width: 100%;
+    max-width: 100%;
     font-size: var(--fs-600);
     transform: translateX(-100%);
     transition: transform 0.8s ease-in-out;
   }
 
-  
-
-
   .primary-nav[data-visible],
   .nav-wrapper form[data-visible]{
     transform: translateX(0);
     transition: all 1s ease-in-out;
-  }
-
-  .secondary-nav{
-    display: none;
   }
 
   .nav-list{
@@ -416,35 +396,31 @@ header form .search-icon{
     gap: 1rem;
   }
 
-  .nav-list span{
-    display: none;
-  }
-
   .mobile-nav-toggle{
     display: unset;
     padding: 0.5rem;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: var(--clr-white);
     cursor: pointer;
     z-index: 1000;
     left: 1rem;
     top: 1rem;
-    width: 1.5rem;
-    aspect-ratio: 1;
-    color: var(--clr-white);
-    background-color: var(--clr-light);
-    background-image: url(./images/icon-hamburger.svg); 
-    background-repeat: no-repeat;
-    background-size: contain;
+    filter: invert(1);
   }
 
-  .mobile-nav-toggle[data-opened]{
-    background-image: url(./images/icon-close.svg);
+  .mobile-nav-toggle .hambuger,
+  .mobile-nav-toggle .close{
+    width: 1.2rem;
   }
 
-  
+  .secondary-nav,
+  .nav-list span,
+  .mobile-nav-toggle .close,
+  .mobile-nav-toggle[data-opened] .hambuger{
+    display: none;
+  }
+
+  .mobile-nav-toggle[data-opened] .close{
+    display: unset;
+  }
 }
 
 
@@ -497,12 +473,12 @@ header form .search-icon{
   }
 }
 
+/* SCORE SECTION  */
 .score{
   margin-block-start: 5rem;
   padding: 1rem;
   text-align: left;
   align-items: center;
-  
 }
 
 .score > *{
@@ -513,6 +489,10 @@ header form .search-icon{
   justify-content: space-between;
 }
 
+.score img{
+  aspect-ratio: 2/1;
+}
+
 /* -------- FOOTER -------- */
 .footer-widget{
   align-items: flex-start;
@@ -521,6 +501,10 @@ header form .search-icon{
 
 .footer-widget .footer-icons{
   max-width: 25%;
+}
+
+.footer-widget .footer-icons ion-icon{
+  font-size: 1.3rem;
 }
 
 .footer-widget .footer-menu{
@@ -565,6 +549,11 @@ footer form button{
   .footer-widget .footer-menu,
   footer form{
     width: 100%;
+    max-width: 100%;
+  }
+
+  footer .social-list {
+    justify-content: space-evenly;
   }
   
   .footer-widget .footer-menu{
